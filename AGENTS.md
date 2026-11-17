@@ -13,3 +13,8 @@
 ## Verification and publishing
 - Preserve game rules unless the user explicitly requests a change.
 - Check changes at the appropriate level and verify the intended commit is live before claiming publication.
+
+## Confirmed placement rules
+- Side tableau columns t0-t7 accept one rank lower and opposite color only (red on black or black on red), or any card on an empty column. Never allow same-color or same-suit stacking on side columns.
+- Central foundations f0-f7 start with Ace and ascend by one in the same suit.
+- The bot and human actions must use the same placement validation. Keep tests in test/table-rules.cjs passing.
