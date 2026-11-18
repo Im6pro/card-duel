@@ -1,0 +1,18 @@
+/* The entry shell is CDN-hosted so it appears even while the game server sleeps. */
+body.boot-loading{overflow:hidden}
+body.boot-loading>main{visibility:hidden}
+#boot-screen{position:fixed;inset:0;z-index:15;display:grid;place-items:center;padding:32px 24px;background:radial-gradient(ellipse at 50% 35%,#68172e 0%,#300710 60%,#160308 100%);color:#f7e5b6;text-align:center}
+#boot-screen[hidden]{display:none}
+.boot-content{width:min(320px,100%)}
+.boot-logo{display:block;width:116px;height:116px;object-fit:cover;border-radius:26px;margin:0 auto 22px;box-shadow:0 0 48px #d8a04e30,0 10px 40px #0005}
+#boot-screen h1{margin:0 0 12px;font:700 32px/1.2 Georgia,serif;letter-spacing:1px;color:#f7d98e;text-shadow:0 0 20px #efbb5040;direction:ltr}
+.boot-suits{color:#bd995c;letter-spacing:14px;font:18px/1.5 Georgia,serif;margin:20px 0 26px;direction:ltr}
+.boot-track{width:180px;height:3px;margin:0 auto 22px;background:#ffffff12;border-radius:8px;overflow:hidden}
+.boot-track span{display:block;width:45%;height:100%;background:linear-gradient(90deg,transparent,#f5d68b,transparent);animation:boot-sweep 1.6s ease-in-out infinite}
+#boot-message{min-height:24px;font-size:15px;margin:0}
+.boot-note{font-size:12px;color:#c4a890;line-height:1.8;margin:10px 0 0}
+#boot-retry{margin-top:20px;border:1px solid #d8b66a;background:#e9c778;color:#38121a;padding:10px 22px}
+#boot-retry[hidden]{display:none}
+@keyframes boot-sweep{from{transform:translateX(-110%)}to{transform:translateX(330%)}}
+@media(prefers-reduced-motion:reduce){.boot-track span{animation:none;width:100%;opacity:.7}}
+@media(orientation:landscape) and (max-height:500px){.boot-logo{width:72px;height:72px;margin-bottom:12px}#boot-screen h1{font-size:25px}.boot-suits{margin:10px 0 14px}.boot-track{margin-bottom:14px}}

@@ -18,3 +18,11 @@
 - Side tableau columns t0-t7 accept one rank lower and opposite color only (red on black or black on red), or any card on an empty column. Never allow same-color or same-suit stacking on side columns.
 - Central foundations f0-f7 start with Ace and ascend by one in the same suit.
 - The bot and human actions must use the same placement validation. Keep tests in test/table-rules.cjs passing.
+
+## Static loading entry
+- Canonical player frontend: https://king-slayer-play.onrender.com (Render static CDN).
+- The existing card-duel-iphone service remains the free API backend and may sleep.
+- index.html remains the single frontend/version source. Build static output with node scripts/build-static.cjs; publish public/ only, never the repo root.
+- web/loading.* supplies the branded startup screen and gates requests on /api/health. Do not remove this gate or replace it with a fixed loading delay.
+- API CORS is restricted to the canonical frontend origin. Keep the frontend and backend in sync.
+- Validate loading and preflight behavior with node test/loading.cjs when changing the entry flow.
