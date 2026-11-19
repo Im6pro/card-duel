@@ -105,6 +105,7 @@ async function refresh(force = false) {
     return false;
   }
 }
+function cardHaptic(){try{if(typeof navigator.vibrate==='function')navigator.vibrate(18)}catch(e){}}
 async function action(type, from, to) {
   if (actionPending) return;
   if (!state) { $('welcome').textContent = 'ابدأ تجربة أو ادخل غرفة أول'; return; }
@@ -131,6 +132,7 @@ async function action(type, from, to) {
     if (state && state.turn !== next.turn) {
       sound('end');
     } else if (type === 'move') sound('card');
+    if(type==='move')cardHaptic();
     state = next;
     selected = state.drawn ? 'drawn' : null;
     render();
